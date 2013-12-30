@@ -13,15 +13,15 @@ Reference to design template using custom helpers <http://assemble.io/helpers/>
 
 -----------
 
-### Run following commands to install required node modules
+Run following commands to install required node modules
 
     npm install
 
-### Install powertemplate.js as a windows service, the new windows service named PowerTemplateEngine.exe windows will be installed and started automatically
+Install powertemplate.js as a windows service, the new windows service named PowerTemplateEngine.exe windows will be installed and started automatically
 
     node install-windows-service.js
 
-### Uninstall PowerTempalteEngine.exe
+Uninstall PowerTempalteEngine.exe
 
     node uninstall-windows-service.js
 
@@ -45,6 +45,7 @@ Example
 -----
 
 POST: http://localhost:8888/PowerTemplate
+
 Content-Type: application/json
 
 
