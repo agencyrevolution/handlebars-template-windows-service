@@ -1,0 +1,75 @@
+<html>
+<body>
+
+  <h1> partial</h1>
+<form action="http://localhost:8080/PowerTemplate/partial" method="POST">
+
+<textarea name="source">
+function (Handlebars,depth0,helpers,partials,data) {\n  this.compilerInfo = [4,'>= 1.0.0'];\nhelpers = this.merge(helpers, Handlebars.helpers); data = data || {};\n  \n\n\n  return \"\\\"function (Handlebars,depth0,helpers,partials,data) {\\\\n  this.compilerInfo = [4,'>= 1.0.0'];\\\\nhelpers = this.merge(helpers, Handlebars.helpers); data = data || {};\\\\n  var buffer = \\\\\\\"\\\\\\\", stack1, stack2, options, functionType=\\\\\\\"function\\\\\\\", escapeExpression=this.escapeExpression, self=this, blockHelperMissing=helpers.blockHelperMissing;\\\\n\\\\nfunction program1(depth0,data) {\\\\n  \\\\n  var buffer = \\\\\\\"\\\\\\\", stack1;\\\\n  buffer += \\\\\\\"<li>\\\\\\\";\\\\n  if (stack1 = helpers.name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }\\\\n  else { stack1 = depth0.name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }\\\\n  buffer += escapeExpression(stack1)\\\\n    + \\\\\\\" is \\\\\\\";\\\\n  if (stack1 = helpers.age) { stack1 = stack1.call(depth0, {hash:{},data:data}); }\\\\n  else { stack1 = depth0.age; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }\\\\n  buffer += escapeExpression(stack1)\\\\n    + \\\\\\\"</li>\\\\\\\";\\\\n  return buffer;\\\\n  }\\\\n\\\\n  buffer += \\\\\\\"  <p>Hello, my name is \\\\\\\";\\\\n  if (stack1 = helpers.name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }\\\\n  else { stack1 = depth0.name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }\\\\n  buffer += escapeExpression(stack1)\\\\n    + \\\\\\\". I am from \\\\\\\";\\\\n  if (stack1 = helpers.hometown) { stack1 = stack1.call(depth0, {hash:{},data:data}); }\\\\n  else { stack1 = depth0.hometown; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }\\\\n  buffer += escapeExpression(stack1)\\\\n    + \\\\\\\". I have \\\\\\\\r\\\\\\\\n  \\\\\\\"\\\\n    + escapeExpression(((stack1 = ((stack1 = depth0.kids),stack1 == null || stack1 === false ? stack1 : stack1.length)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))\\\\n    + \\\\\\\" kids:</p>\\\\\\\\r\\\\\\\\n  <ul>\\\\\\\";\\\\n  options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data};\\\\n  if (stack2 = helpers.kids) { stack2 = stack2.call(depth0, options); }\\\\n  else { stack2 = depth0.kids; stack2 = typeof stack2 === functionType ? stack2.apply(depth0) : stack2; }\\\\n  if (!helpers.kids) { stack2 = blockHelperMissing.call(depth0, stack2, options); }\\\\n  if(stack2 || stack2 === 0) { buffer += stack2; }\\\\n  buffer += \\\\\\\"</ul>\\\\\\\\r\\\\\\\\n\\\\\\\";\\\\n  return buffer;\\\\n  }\\\"\";\n  }
+</textarea>
+
+<textarea name="data">
+  { "name": "Alan", "hometown": "Somewhere, TX",
+  "kids": [{"name": "Jimmy", "age": "12"}, {"name": "Sally", "age": "4"}]}
+</textarea>
+
+<input type="submit" name="submit">
+
+</form>
+
+
+  <h1> full</h1>
+<form action="http://localhost:8080/PowerTemplate/full" method="POST">
+
+<textarea name="source">
+  <p>Hello, my name is {{name}}. I am from {{hometown}}. I have 
+  {{kids.length}} kids:</p>
+  <ul>{{#kids}}<li>{{name}} is {{age}}</li>{{/kids}}</ul>
+</textarea>
+
+<textarea name="data">
+  { "name": "Alan", "hometown": "Somewhere, TX",
+  "kids": [{"name": "Jimmy", "age": "12"}, {"name": "Sally", "age": "4"}]}
+</textarea>
+
+<input type="submit" name="submit">
+
+</form>
+
+
+
+  <h1> precompile</h1>
+<form action="http://localhost:8080/PowerTemplate/precompile" method="POST">
+
+<textarea name="source">
+  <p>Hello, my name is {{name}}. I am from {{hometown}}. I have 
+  {{kids.length}} kids:</p>
+  <ul>{{#kids}}<li>{{name}} is {{age}}</li>{{/kids}}</ul>
+</textarea>
+
+<textarea name="data">
+  { "name": "Alan", "hometown": "Somewhere, TX",
+  "kids": [{"name": "Jimmy", "age": "12"}, {"name": "Sally", "age": "4"}]}
+</textarea>
+
+<input type="submit" name="submit">
+
+
+</form>
+
+
+  <h1> Compile</h1>
+<form action="http://localhost:8080/PowerTemplate" method="POST">
+
+<textarea name="source">
+  <p>Hello, my name is {{name}}. I am from {{hometown}}. I have 
+  {{kids.length}} kids:</p>
+  <ul>{{#kids}}<li>{{name}} is {{age}}</li>{{/kids}}</ul>
+</textarea>
+
+<textarea name="data">
+  { "name": "Alan", "hometown": "Somewhere, TX",
+  "kids": [{"name": "Jimmy", "age": "12"}, {"name": "Sally", "age": "4"}]}
+</textarea>
+<input type="submit" name="submit">
+</form>
