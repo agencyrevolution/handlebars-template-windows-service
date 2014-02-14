@@ -114,7 +114,7 @@ Syntax: Similar to each but have two more parameters
 - sortOrder: 'asc' or 'desc'
 
 ```
-{{#each_with_sort array sortBy sortOrder}}...{{/each}}
+{{#each_with_sort array sortBy sortOrder}}...{{/each_with_sort}}
 ```
 
 JSON
@@ -139,7 +139,7 @@ Handlebars template
 <ol>
 	{{#each_with_sort data 'role' 'asc'}}
 		<li>{{role}}</li>
-	{{/each}}
+	{{/each_with_sort}}
 </ol>
 ```
 
@@ -157,7 +157,7 @@ Handlebars template
 <ol>
 	{{#each_with_sort data 'role' 'desc'}}
 		<li>{{role}}</li>
-	{{/each}}
+	{{/each_with_sort}}
 </ol>
 ```
 
