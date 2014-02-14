@@ -64,10 +64,10 @@ Handlebars.registerHelper('each_with_sort', function (array, key, sortOrder, opt
         if (!a || !b)
             return 0;
         if (a > b)
-            return sortOrder == 'desc' ? 1 : -1;
+            return sortOrder == 'desc' ? -1 : 1;
         else if (a == b)
             return 0;
-        return sortOrder == 'desc' ? -1 : 1;
+        return sortOrder == 'desc' ? 1 : -1;
     });
     for (var i = 0, j = sortedArray.length; i < j; i++) {
         output += options.fn(sortedArray[i]);
