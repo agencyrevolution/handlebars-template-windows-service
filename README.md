@@ -102,3 +102,71 @@ Response
 ```
 "<h1> Hello Hung Nguyen</h1><p>Emails</p><ul><li>hung@agencyrevolution.com</li><li>hungnt.bkit@gmail.com</li><li>hungnt.me@gmail.com</li></ul>"
 ```
+
+----
+Custom Block Helpers
+----
+
+#### 1. Each with sort
+
+Syntax: Similar to each but have two more parameters
+- sortyBy: the json property name of the element
+- sortOrder: 'asc' or 'desc'
+
+```
+{{#each_with_sort array sortBy sortOrder}}...{{/each}}
+```
+
+JSON
+```
+{
+	"data": [
+		{
+			"role": "B"
+		},
+		{
+			"role": "A"
+		},
+		{
+			"role": "C"
+		}
+	]
+}
+```
+
+Handlebars template
+```
+<ol>
+	{{#each_with_sort data 'role' 'asc'}}
+		<li>{{role}}</li>
+	{{/each}}
+</ol>
+```
+
+Html
+```
+<ol>
+	<li>A</li>
+	<li>B</li>
+	<li>C</li>
+</ol>
+```
+
+Handlebars template
+```
+<ol>
+	{{#each_with_sort data 'role' 'desc'}}
+		<li>{{role}}</li>
+	{{/each}}
+</ol>
+```
+
+Html
+```
+<ol>
+	<li>C</li>
+	<li>B</li>
+	<li>A</li>
+</ol>
+```
+

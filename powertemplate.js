@@ -10,33 +10,33 @@ Handlebars.registerHelper('compareNow', function(lvalue, options) {
     if (arguments.length < 2)
         throw new Error("Handlerbars Helper 'compare' needs 2 parameters");
 
-    firstDate = new Date(lvalue);
+    var firstDate = new Date(lvalue);
 
-    operator = options.hash.operator || "==";
+    var operator = options.hash.operator || "==";
 
     var operators = {
-        '==': function(l, r) {
+        '==': function (l, r) {
             return l == r;
         },
-        '===': function(l, r) {
+        '===': function (l, r) {
             return l === r;
         },
-        '!=': function(l, r) {
+        '!=': function (l, r) {
             return l != r;
         },
-        '<': function(l, r) {
+        '<': function (l, r) {
             return l < r;
         },
-        '>': function(l, r) {
+        '>': function (l, r) {
             return l > r;
         },
-        '<=': function(l, r) {
+        '<=': function (l, r) {
             return l <= r;
         },
-        '>=': function(l, r) {
+        '>=': function (l, r) {
             return l >= r;
         }
-    }
+    };
 
     if (!operators[operator])
         throw new Error("Handlerbars Helper 'compare' doesn't know the operator " + operator);
@@ -52,6 +52,27 @@ Handlebars.registerHelper('compareNow', function(lvalue, options) {
 
 Handlebars.registerHelper('json', function(obj) {
     return JSON.stringify(obj, 4);
+});
+
+
+// each with sort
+Handlebars.registerHelper('each_with_sort', function (array, key, sortOrder, options) {
+    var output = '';
+    var sortedArray = array.sort(function (e1, e2) {
+        var a = e1[key];
+        var b = e2[key];
+        if (!a || !b)
+            return 0;
+        if (a > b)
+            return sortOrder == 'desc' ? 1 : -1;
+        else if (a == b)
+            return 0;
+        return sortOrder == 'desc' ? -1 : 1;
+    });
+    for (var i = 0, j = sortedArray.length; i < j; i++) {
+        output += options.fn(sortedArray[i]);
+    };
+    return output;
 });
 
 
